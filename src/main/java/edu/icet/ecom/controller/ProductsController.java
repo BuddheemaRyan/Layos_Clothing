@@ -31,7 +31,7 @@ public class ProductsController {
 
     @GetMapping("/product/getAll")
     public List<Product> getAll(){
-        return null;
+      return productService.getAll();
     }
 
 }

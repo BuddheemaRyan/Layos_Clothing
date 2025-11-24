@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class ProductRepository {
@@ -53,5 +55,33 @@ public class ProductRepository {
             }
         }
         return null;
+    }
+
+
+    public List<Product> getAll() {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            String sql = "SELECT * FROM Products";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            ResultSet rst = pstm.executeQuery();
+
+            List<Product> productList = new ArrayList<>();
+            while (rst.next()) {
+                productList.add(new Product(
+                                rst.getInt("id"),
+                                rst.getString("name"),
+                                rst.getString("category"),
+                                rst.getDouble("price"),
+                                rst.getInt("stock"),
+                                rst.getString("image")
+                        )
+                );
+            }
+            return productList;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
