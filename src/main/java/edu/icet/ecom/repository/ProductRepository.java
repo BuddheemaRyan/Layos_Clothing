@@ -32,5 +32,26 @@ public class ProductRepository {
 
     }
 
+    public Product getProduct(int id) throws SQLException {
+        String sql = "SELECT * FROM Products WHERE id = ?";
 
+        try (Connection connection = DBConnection.getInstance().getConnection();
+             PreparedStatement pstm = connection.prepareStatement(sql)) {
+
+            pstm.setInt(1, id);
+            try (ResultSet rs = pstm.executeQuery()) {
+                if (rs.next()) {
+                    return new Product(
+                            rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getString("category"),
+                            rs.getDouble("price"),
+                            rs.getInt("stock"),
+                            rs.getString("image")
+                    );
+                }
+            }
+        }
+        return null;
+    }
 }

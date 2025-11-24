@@ -18,5 +18,7 @@ public class ProductService {
             productRepository.addProduct(product);
     }
 
-
+    public Product getProduct(int id) throws SQLException {
+        return productRepository.getProduct(id);
+    }
 }

@@ -18,7 +18,7 @@ public class ProductsController {
     }
     @GetMapping("get/product/{id}")
     public Product getProduct(@PathVariable int id) throws SQLException {
-       return null;
+        return productService.getProduct(id);
     }
     @GetMapping("delete/product/{id}")
     public void deleteProduct(int id){
