@@ -19,7 +19,11 @@ public class DBConnection {
         return instance;
     }
 
-    public  Connection getConnection(){
+    public  Connection getConnection() throws SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/layos","root","1234") ;
+        if(connection == null || connection.isClosed()){
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/layos","root","1234");
+        }
         return  connection;
     }
 

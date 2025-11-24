@@ -1,21 +1,24 @@
 package edu.icet.ecom.controller;
 
 import edu.icet.ecom.model.dto.Product;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import edu.icet.ecom.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 @RestController
-
+@CrossOrigin
 public class ProductsController {
+    @Autowired
+    ProductService productService;
     @PostMapping("add/product")
-    public  void addProduct(Product product){
-
+    public  void addProduct(@RequestBody  Product product) throws SQLException {
+        productService.addProduct(product);
     }
     @GetMapping("get/product/{id}")
-    public Product getProduct(int id){
-        return null;
+    public Product getProduct(@PathVariable int id) throws SQLException {
+       return null;
     }
     @GetMapping("delete/product/{id}")
     public void deleteProduct(int id){
