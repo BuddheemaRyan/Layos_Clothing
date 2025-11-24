@@ -25,8 +25,8 @@ public class ProductsController {
 
     }
     @PostMapping("update/product")
-    public void updateProduct(Product product){
-
+    public void updateProduct(@RequestBody Product product){
+        productService.updateProduct(product);
     }
 
     @GetMapping("/product/getAll")

@@ -26,4 +26,8 @@ public class ProductService {
     public List<Product> getAll(){
         return productRepository.getAll();
     }
+
+    public void updateProduct(Product product){
+        productRepository.updateProduct(product);
+    }
 }

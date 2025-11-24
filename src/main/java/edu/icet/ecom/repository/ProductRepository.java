@@ -82,6 +82,25 @@ public class ProductRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
+
+    public void updateProduct(Product product){
+        try {
+            Connection connection =DBConnection.getInstance().getConnection();
+            String sql ="UPDATE Products SET name=?, category=?, price=?, stock=?, image=? WHERE id=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,product.getName());
+            pstm.setObject(2,product.getCategory());
+            pstm.setObject(3,product.getPrice());
+            pstm.setObject(4,product.getStock());
+            pstm.setObject(5,product.getImage());
+            pstm.setObject(6,product.getId());
+            pstm.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }
