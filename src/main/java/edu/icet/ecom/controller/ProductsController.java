@@ -21,8 +21,8 @@ public class ProductsController {
         return productService.getProduct(id);
     }
     @GetMapping("delete/product/{id}")
-    public void deleteProduct(int id){
-
+    public void deleteProduct(@PathVariable int id){
+         productService.deleteProduct(id);
     }
     @PostMapping("update/product")
     public void updateProduct(@RequestBody Product product){

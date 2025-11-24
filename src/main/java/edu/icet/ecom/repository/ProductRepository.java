@@ -102,5 +102,16 @@ public class ProductRepository {
         }
     }
 
+    public void deleteProduct(int id){
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            String sql ="DELETE FROM Products WHERE id=?";
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setInt(1,id);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
