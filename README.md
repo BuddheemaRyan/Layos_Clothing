@@ -1,5 +1,14 @@
 # Layos Clothing Shop
 
+![Java](https://img.shields.io/badge/Java-23-orange?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.0--RC2-6DB33F?logo=springboot&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8%2B-4479A1?logo=mysql&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-1.18.40-red?logo=lombok&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.8-7952B3?logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript&logoColor=black)
+![Maven](https://img.shields.io/badge/Maven-3.8%2B-C71A36?logo=apachemaven&logoColor=white)
+
 A full-stack e-commerce clothing store application built with **Spring Boot** (backend) and **HTML/Bootstrap/JavaScript** (frontend).
 
 ---
